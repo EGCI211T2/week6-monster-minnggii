@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#include "monster.h"
+#include "thanos.h"
 
 int main(int argc, char* argv[]) {
   //1. Your monster

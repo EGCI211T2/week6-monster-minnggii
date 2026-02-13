@@ -8,8 +8,12 @@ private:
 
 public:
 	void Attack(monster &);
-        void heal();
+    void heal();
 	monster(string = "Anonymous", int = 1, int = 1);
+	monster(int, int);
+	void operator+=(int x); //Binary
+	void operator+=(monster &x); //Binary
+	void operator--(); //Unary operator
 	//Alt + 126 for "~"
 	~monster();
 	void display()
@@ -18,7 +22,38 @@ public:
 		cout<<"HP: " <<hp <<endl;
 		cout<<"Potions: " <<potion <<endl;
 	}
+	bool operator>(monster &x);
 };
+
+bool monster::operator>(monster &x)
+{
+	if(hp>x.hp)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void monster::operator+=(int x)
+{
+	this -> hp += x;
+	//potion++;
+}
+
+void monster::operator+=(monster &x)
+{
+	hp += x.hp;
+	x.hp = 0;
+	//potion++;
+}
+
+void monster::operator--()
+{
+	this -> hp--;
+}
 
 monster::~monster()
 {

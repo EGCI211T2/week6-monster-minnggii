@@ -29,7 +29,7 @@ void Thanos::snap_finger(monster x[], int n)
 		{
 			for(int i = n; i >= n / 2; i--)
 			{
-				x[i].clearhp();
+				x[i].kill();
 			}
 			cout<<"Half of the monsters are gone " <<endl;
 		}

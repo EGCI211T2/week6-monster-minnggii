@@ -16,7 +16,7 @@ public:
 	void operator--(); //Unary operator
 	//Alt + 126 for "~"
 	~monster();
-	void clearhp();
+	void kill();
 	void display()
 	{
 		if(hp > 0)
@@ -63,7 +63,7 @@ void monster::operator--()
 	this -> hp--;
 }
 
-void monster::clearhp()
+void monster::kill()
 {
 	this -> hp = 0;
 }

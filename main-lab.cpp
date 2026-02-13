@@ -4,19 +4,30 @@ using namespace std;
 #include "thanos.h"
 
 int main(int argc, char* argv[]) {
-  //1. Your monster
-  monster YOU(argv[1],atoi(argv[2]),atoi(argv[3]);
+  
+  Thanos T;
+  int n;
+  cout<<"How many monsters? ";
+  cin>>n;
 
- //2 other monster
-  int i;
-  for(/* finish the for loop*/){
-        monster *p=new monster(argv[i],atoi(argv[i+1]),atoi(argv[i+2]);  
-         //fight each other 
+  monster *m = new monster[n];
 
-      delete p;
-      You.heal();
+  ++T;
+  ++T;
+  T.snap_finger(m,n);
+  ++T;
+  ++T;
+  T.snap_finger(m,n);
+  ++T;
+  ++T;
+  T.snap_finger(m,n);//Clear hp n/2(half) of the monster.
+
+  cout<<"================" <<endl;
+  for(int i = 0; i < n; i++)
+  {
+    m[i].display(); //If the hp = 0, you do not display
   }
   
+  delete [] m;
+
 }//call des for A
-  
-  

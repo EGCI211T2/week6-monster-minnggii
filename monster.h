@@ -16,11 +16,19 @@ public:
 	void operator--(); //Unary operator
 	//Alt + 126 for "~"
 	~monster();
+	void clearhp();
 	void display()
 	{
-		cout<<"Name: " <<name <<endl;
+		if(hp > 0)
+		{
+			cout<<"Name: " <<name <<endl;
+			cout<<"HP: " <<hp <<endl;
+			cout<<"Potions: " <<potion <<endl;
+		}
+	}
+	void showhp()
+	{
 		cout<<"HP: " <<hp <<endl;
-		cout<<"Potions: " <<potion <<endl;
 	}
 	bool operator>(monster &x);
 };
@@ -53,6 +61,11 @@ void monster::operator+=(monster &x)
 void monster::operator--()
 {
 	this -> hp--;
+}
+
+void monster::clearhp()
+{
+	this -> hp = 0;
 }
 
 monster::~monster()

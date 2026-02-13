@@ -11,11 +11,39 @@ public:
 	/* constructor and destructor */
 	Thanos(int = 0, int = 1000);
 	~Thanos();
-	void snap_finger(monster[], int); 
+	void snap_finger(monster[], int);
 	/* show all hps
 	/ clear half of monster hp, if stone =6*/
 	void operator++(); // increase the stone;
 };
+
+void Thanos::snap_finger(monster x[], int n)
+	{
+		for(int i = 0; i < n; i++)
+		{
+			cout<<"Monster " <<i + 1 <<": ";
+			x[i].showhp();
+		}
+
+		if(stones >= 6)
+		{
+			for(int i = n; i >= n / 2; i--)
+			{
+				x[i].clearhp();
+			}
+			cout<<"Half of the monsters are gone " <<endl;
+		}
+		else
+		{
+			cout<<"Not enough stones... Nothing happened" <<endl;
+		}
+	}
+
+void Thanos::operator++()
+{
+	stones++;
+	cout<<"Stone added" <<endl;
+}
 
 Thanos::~Thanos()
 {

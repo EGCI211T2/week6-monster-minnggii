@@ -1,5 +1,9 @@
 #ifndef monster_h
 #define monster_h
+#define MAX_HP 100;
+#define MAX_POTION 10;
+
+#include <cstdlib>
 
 class monster{
 private:
@@ -24,14 +28,55 @@ public:
 			cout<<"Name: " <<name <<endl;
 			cout<<"HP: " <<hp <<endl;
 			cout<<"Potions: " <<potion <<endl;
+			cout<<"------------------" <<endl;
 		}
 	}
 	void showhp()
 	{
-		cout<<"HP: " <<hp <<endl;
+		cout<<name <<"'s HP: " <<hp <<endl;
 	}
 	bool operator>(monster &x);
 };
+
+void monster::heal()
+{
+	if(potion >= 1)
+	{
+		potion--;
+		hp++;
+	}
+	else
+	{
+		cout<<"No potions remaining " <<endl;
+	}
+}
+
+void monster::Attack(monster &x)
+{
+	if(hp>x.hp)
+	{
+		x.hp > 10? x.hp -= 10: x.hp = 0;
+	}
+	else
+	{
+		x.hp -= 2;
+		if(hp > 1)
+		{
+			hp--;
+		}
+		else
+		{
+			hp = 0;
+		}
+	}
+
+	cout<<name <<endl;
+	cout<<"Attacks" <<endl;
+	cout<<x.name <<endl;
+	showhp();
+    x.showhp();
+    cout<<"==================" <<endl;
+}
 
 bool monster::operator>(monster &x)
 {
@@ -75,9 +120,11 @@ monster::~monster()
 
 monster::monster(string n, int h, int p)
 {
-	name = n;
-	hp = h;
-	potion = p;
+	cout<<"What is your name? ";
+	cin>>name;
+	srand(time(0));
+	hp = rand()%MAX_HP;
+	potion = rand()%MAX_POTION;
 	cout<<"Monster "<<name <<" is here"<<endl;
 }
 #endif

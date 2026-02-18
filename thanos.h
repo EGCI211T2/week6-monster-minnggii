@@ -21,10 +21,9 @@ void Thanos::snap_finger(monster x[], int n)
 	{
 		for(int i = 0; i < n; i++)
 		{
-			cout<<"Monster " <<i + 1 <<": ";
 			x[i].showhp();
 		}
-
+		
 		if(stones >= 6)
 		{
 			for(int i = n; i >= n / 2; i--)
@@ -42,6 +41,7 @@ void Thanos::snap_finger(monster x[], int n)
 void Thanos::operator++()
 {
 	stones++;
+	cout<<"-----" <<endl;
 	cout<<"Stone added" <<endl;
 }
 
@@ -53,6 +53,6 @@ Thanos::Thanos(int s, int h)
 {
 	stones = s;
 	hp = h;
-	cout<<"Thanos is here" <<endl;
+	cout<<"I am Thanos" <<endl;
 }
 #endif
